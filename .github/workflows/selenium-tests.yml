@@ -86,6 +86,7 @@ jobs:
 
       # Шаг 8: Генерация Allure отчета
       - name: Generate Allure Report
+        if: always()
         run: |
           allure generate build/allure-results -o build/reports/allure-report -c
           echo "✅ Allure report generated"
@@ -134,16 +135,16 @@ jobs:
       # Шаг 11: Деплой отчета на GitHub Pages
       - name: Setup Pages
         uses: actions/configure-pages@v4
-        if: success()
+        if: always()
 
       - name: Upload to Pages
         uses: actions/upload-pages-artifact@v3
-        if: success()
+        if: always()
         with:
           path: ./build/reports/allure-report
 
       - name: Deploy to GitHub Pages
-        if: success()
+        if: always()
         id: deployment
         uses: actions/deploy-pages@v4
         with:
