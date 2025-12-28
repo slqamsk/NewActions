@@ -3,8 +3,6 @@ name: Java Selenium Tests
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
   workflow_dispatch:
 
 # Разрешаем запись в репозиторий для GitHub Pages
@@ -174,3 +172,5 @@ jobs:
         run: |
           echo "❌ Тесты завершились с ошибками"
           echo "📋 Подробности в разделе Artifacts как 'test-results-download'"
+          REPORT_URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+          echo "🔗 Allure Report URL: $REPORT_URL"
