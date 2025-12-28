@@ -57,4 +57,15 @@ public class WikipediaTest {
             $("body").shouldHave(text("Wikipedia"));
         });
     }
+
+    @Test
+    public void testWikipediaSeleniumPage() {
+        step("Шаг01 - Открыть википедию", () -> {
+            open("https://ru.wikipedia.org/wiki/Selenium");
+        });
+
+        step("Шаг02 - Проверить текст на странице", () -> {
+            $("body").shouldHave(text("Selenide"));
+        });
+    }
 }
