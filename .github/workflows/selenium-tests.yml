@@ -4,6 +4,9 @@ on:
   push:
     branches: [ main ]
   workflow_dispatch:
+  schedule:
+    # Ежедневно в 1:00 UTC (ночь)
+    - cron: '15 13 * * *'
 
 # Разрешаем запись в репозиторий для GitHub Pages
 permissions:
